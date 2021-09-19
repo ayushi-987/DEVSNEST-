@@ -12,4 +12,4 @@ app.get('/',(req,res)=>{
     res.json({a:"Hello"});
 });
 
-app.listen(5000);
+ app.listen(5000);
