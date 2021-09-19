@@ -1,0 +1,12 @@
+> fs.mkdirSync("day-5");
+> fs.writeFileSync("day-5/hello.txt","hello peps ");
+undefined
+> fs.readFileSync("day-5/hello.txt","utf-8");
+'hello peps '
+> fs.appendFileSync("day-5/hello.txt", " how are you?");
+undefined
+> fs.renameSync("day-5/hello.txt","day-5/hiii.txt");
+undefined
+PS C:\Users\asus\OneDrive\Documents\DEVSNEST-Backend> node index.js     
+I am inside Require test
+undefined
