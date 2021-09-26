@@ -1,0 +1,122 @@
+Redis is similar to localStorage in used in Javascript 
+
+Install Redis on Mac - brew install redis 
+Start redis on Mac - redis-cli 
+
+Also, to run redis-server in background use the following command-
+	redis-server —daemonize yes
+)
+It starts Redis server on local host with port 6379
+
+key-value pair with value being string.
+(Note - Redis is not a database. It just stores a big JSON object)
+
+To store Data in Redis -
+	SET key value
+Eg - SET name Aniket
+	OK
+
+To get the value of some key
+	GET key
+Eg - GET name
+	“Aniket”
+
+To delete the key-value pair
+	DEL key
+Eg - DEL age
+	(integer) 1
+
+To check if some key exists or not
+	EXISTS key
+Eg - EXISTS name
+	(integer) 1	(If the key exists)
+	EXISTS surname
+	(integer) 0	(If the key doesn’t exists)
+
+To get all the keys
+	KEYS *
+Eg - KEYS *
+	1.) “name”
+	2.) “age”
+
+To Delete all the keys all together
+	FLUSHALL
+Eg - FLUSHALL
+	OK
+
+Know Expiry for the Keys
+	ttl key
+Eg - ttl name
+	(integer) -2	(Expired key)
+	(integer) -1	(Key with no Expiry time)
+
+Set expiry of already present key
+	expire key time(in seconds)
+Eg - expire name 10
+
+Set expiry at the time of creating key
+	setex key time(in seconds) value
+Eg - setex name 10 “Aniket Singh”
+
+Arrays in Redis
+To add elements in an array use lpush and rpush 	 
+	LPUSH key element [element …]
+	RPUSH key element [element …]
+	LPOP key [count] 
+	RPOP key [count]
+Note - Empty List or Arrays does not exist in Redis. If we remove all the items from the List or Array then the List or Array also gets removed. 
+
+Create a SET (unordered list of unique elements) in Redis -
+	SADD key member/members
+	SADD hobbies “weight lifting” “Music”
+	SMEMBERS Key
+	SPOP key  (delete last element from the set
+
+
+
+PostgreSQL
+
+Connect to Postgres Server - 
+% psql -h localhost -p [port](in general - 5432) -U [User_name] {database_name}
+
+% psql --help [for all the helpful commands]
+
+Another way to connect to database -
+% psql 
+
+
+After entering the psql CLI  
+
+[Note - Use Semicolon to execute an SQL command]
+
+To list all Databases - 
+=> \l
+
+To quit psql CLI -
+=> \q
+
+To check all the users - 
+=> \du
+
+To create a Database - 
+=> CREATE DATABASE {database_name};
+
+To delete a Database - 
+=> DROP DATABASE {database_name};
+
+To connect with a Database - 
+=> \c database_name
+
+
+To Create Table - 
+=> CREATE TABLE table_name(
+	ID INT PRIMARY KEY SERIAL,
+	column_name1 data_type + constraints if any,
+	column_name2 data_type + constraints if any,
+	…,
+	…,
+	…
+	);
+
+To Delete Table -
+=> DROP TABLE table_name;
